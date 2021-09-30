@@ -1,13 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
-import {useQuery} from '@apollo/client';
+import {useQuery, useMutation} from '@apollo/client';
 import {GET_ALL_USERS} from '../Graphql/Queries';
+import {DELETE_USER} from '../Graphql/Mutation';
 
 export default function LoginScreen(props) {
+  const forceUpdate = React.useReducer(() => ({}), {})[1];
+
   const onSubmit = () => {
     props.setLogin(false);
   };
-  const {data} = useQuery(GET_ALL_USERS);
+
+  const handleDelete = () => {
+    refetch();
+    forceUpdate();
+  };
+
+  const {data, refetch} = useQuery(GET_ALL_USERS, {enabled: false});
+  const [deleteUser, {error}] = useMutation(DELETE_USER);
+
+  useEffect(() => {
+    handleDelete();
+  }, []);
 
   return (
     <View
@@ -33,9 +47,16 @@ export default function LoginScreen(props) {
       {data &&
         data.getAllUsers.map(e => {
           return (
-            <View style={{flexDirection: 'row'}} key={e.name}>
+            <View style={{flexDirection: 'row'}} key={e.id}>
               <Text>{e.name} as </Text>
               <Text>{e.username}</Text>
+              <Button
+                title="Delete"
+                onPress={() => {
+                  deleteUser({variables: {id: e.id}});
+                  handleDelete();
+                }}
+              />
             </View>
           );
         })}
