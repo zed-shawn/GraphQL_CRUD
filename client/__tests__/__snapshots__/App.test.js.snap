@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders the app correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "flex": 1,
+        "fontSize": 30,
+        "fontWeight": "bold",
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    GraphQL + ERN Client
+  </Text>
+  <View
+    style={
+      Object {
+        "flex": 3,
+        "justifyContent": "space-evenly",
+      }
+    }
+  >
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Enter Name"
+      style={
+        Object {
+          "borderRadius": 10,
+          "borderWidth": 1,
+        }
+      }
+    />
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Enter Username"
+      style={
+        Object {
+          "borderRadius": 10,
+          "borderWidth": 1,
+        }
+      }
+    />
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Enter Password"
+      secureTextEntry={true}
+      style={
+        Object {
+          "borderRadius": 10,
+          "borderWidth": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      nativeID="animatedComponent"
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "margin": 8,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "black",
+              },
+            ]
+          }
+        >
+          Submit
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

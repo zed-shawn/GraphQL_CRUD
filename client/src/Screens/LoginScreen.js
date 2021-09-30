@@ -1,10 +1,26 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, Button} from 'react-native';
+import {View, Text, TextInput, Button, ToastAndroid} from 'react-native';
 
-export default function Screen() {
+export default function LoginScreen(props) {
   const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+
+  const onSubmit = () => {
+    if (name && username && password) {
+      props.setName(name);
+      props.setUsername(username);
+      props.setLogin(true);
+    } else {
+      ToastAndroid.showWithGravityAndOffset(
+        'Please enter all the fields',
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM,
+        0,
+        60,
+      );
+    }
+  };
   return (
     <View
       style={{flex: 1, alignItems: 'center', justifyContent: 'space-between'}}>
@@ -45,11 +61,7 @@ export default function Screen() {
         />
       </View>
       <View style={{flex: 1}}>
-        <Button
-          title="Submit"
-          color="black"
-          onPress={() => console.log('das')}
-        />
+        <Button title="Submit" color="black" onPress={onSubmit} />
       </View>
     </View>
   );
