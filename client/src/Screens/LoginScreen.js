@@ -10,6 +10,7 @@ export default function LoginScreen(props) {
     if (name && username && password) {
       props.setName(name);
       props.setUsername(username);
+      props.setPassword(password);
       props.setLogin(true);
     } else {
       ToastAndroid.showWithGravityAndOffset(
